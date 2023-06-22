@@ -3,10 +3,31 @@
 // in the html.
 $ (document).ready(function  () {
 
+
+  var timeOfTheDay= dayjs().format("HH")
   var currentDayEl = $('#currentDay');
    var currentday=dayjs().format('dddd, MMM DD, YYYY');
    console.log(currentday);
+   console.log(timeOfTheDay);
    currentDayEl.text("Today is " +currentday);
+
+   function checkTime (){
+     
+     
+     for (var i=9; i<=17; i++){
+       var timeBlock=$("#hour-"+i)
+       if (timeOfTheDay>i) {
+         $(timeBlock).addClass("past");
+       } else if (timeOfTheDay===i){
+         $(timeBlock).addClass("present");
+       }  else{
+         $(timeBlock).addClass("future");
+       }
+     }
+     
+   }
+   
+   checkTime()
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -25,4 +46,5 @@ $ (document).ready(function  () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+  
 });
