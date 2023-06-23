@@ -8,7 +8,7 @@ $ (document).ready(function  () {
    console.log(currentday);
    console.log(timeOfTheDay);
    currentDayEl.text("Today is " +currentday);
-
+  var todos =[]
    // checks the current hour and changes the timeblock backgroung color accordingly
 
    function checkTime (){
@@ -26,7 +26,14 @@ $ (document).ready(function  () {
      }
      
    }
-  
+  // saves the dodos
+  $(".saveBtn").on("click", function(){
+      console.log("save button was clicked");
+      var index = $(".saveBtn").index(this);
+       console.log(index)
+      todos[index] = $(this).sibling().find(".taskItem").text();
+      localStorage.setItem("tasks", JSON.stringify(todos));
+  });
 
 
 
