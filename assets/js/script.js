@@ -26,14 +26,7 @@ $ (document).ready(function  () {
      }
      
    }
-  // saves the dodos
-  $(".saveBtn").on("click", function(){
-      console.log("save button was clicked");
-      var index = $(".saveBtn").index(this);
-       console.log(index)
-      todos[index] = $(this).sibling().find(".taskItem").text();
-      localStorage.setItem("tasks", JSON.stringify(todos));
-  });
+  
 
 //todos update on click 
 $(".description").on("click", "textarea", function(){
@@ -46,7 +39,7 @@ $(".description").on("click", "textarea", function(){
 });
 
 // loads the todos
-//load tasks
+
  function loadTodos(){
   tasks = JSON.parse(localStorage.getItem("todos"))
   if(!todos) {
@@ -54,6 +47,27 @@ $(".description").on("click", "textarea", function(){
   } ;
   printTodos(todos)
 }
+// prints the todos
+ function printTodos(){
+  $.each(todos, function(list, value){
+
+      var todoEl = $("<textarea>" + list).text(value)
+      
+      console.log(list)
+      console.log(todoEl);
+
+      $("#task-item-" + list).replaceWith(todoEl);
+  })
+}
+// saves the dodos
+$(".saveBtn").on("click", function(){
+  console.log("save button was clicked");
+  var index = $(".saveBtn").index(this);
+   console.log(index)
+  todos[index] = $(this).parent().find(".taskItem").text();
+  localStorage.setItem("todos", JSON.stringify(todos));
+});
+  loadTodos();
    checkTime()
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
