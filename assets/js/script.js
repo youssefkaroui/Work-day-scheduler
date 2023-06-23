@@ -45,7 +45,7 @@ $(".description").on("click", "textarea", function(){
   if(!todos) {
       todos={};
   } ;
-  printTodos(todos)
+  printTodos(todos);
 }
 // prints the todos
  function printTodos(){
