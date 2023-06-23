@@ -35,8 +35,25 @@ $ (document).ready(function  () {
       localStorage.setItem("tasks", JSON.stringify(todos));
   });
 
+//todos update on click 
+$(".description").on("click", "textarea", function(){
+  console.log("textarea  was clicked");
+  var text =""
+  var textInput =$("<textarea>").text().trim().addClass("form-control") .val(text);
 
+  $(text).replaceWith(textInput);
+   
+});
 
+// loads the todos
+//load tasks
+ function loadTodos(){
+  tasks = JSON.parse(localStorage.getItem("todos"))
+  if(!todos) {
+      todos={};
+  } ;
+  printTodos(todos)
+}
    checkTime()
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
