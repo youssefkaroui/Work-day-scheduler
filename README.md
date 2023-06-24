@@ -4,6 +4,7 @@
 
 ## Purpose 
 
+Work-day-scheduler is designed for employees with a busy work day schedule to add events and todos on their daily schedule. They can do so by just clicking on the time block of the hour wanted and enter their task in words. This application will store their typed text and keep displaying it even after they refresh the page. 
 
 
 ### Installation 
