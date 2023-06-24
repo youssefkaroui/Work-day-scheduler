@@ -1,7 +1,7 @@
 
 $ (document).ready(function  () {
 
-
+// global variables 
   var timeOfTheDay= dayjs().format("HH")
   var currentDayEl = $('#currentDay');
    var currentday=dayjs().format('dddd, MMM DD, YYYY');
@@ -26,21 +26,21 @@ $ (document).ready(function  () {
      }
      
    }
-  
+  // prints the todos on the time block 
  function printTodos(){
   $.each(todos, function(index){
 
       var todoEl = $("#time-block-" + index)
       todoEl.text(todos[index])
-      console.log(index)
-      console.log(todoEl);
+      // console.log(index)
+      // console.log(todoEl);
 
      
   })
 }
-// saves the dodos
+// event listener that saves the dodos
 $(".saveBtn").on("click", function(){
-  console.log("save button was clicked");
+  // console.log("save button was clicked");
   var index = $(".saveBtn").index(this);
    console.log(index)
   todos[index] = $(this).prev().val();
